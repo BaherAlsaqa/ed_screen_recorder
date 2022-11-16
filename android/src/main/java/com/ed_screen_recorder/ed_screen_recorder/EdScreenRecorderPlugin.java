@@ -192,7 +192,11 @@ public class EdScreenRecorderPlugin implements FlutterPlugin, ActivityAware, Met
         dataMap.put("startdate", startDate);
         dataMap.put("enddate", null);
         JSONObject jsonObj = new JSONObject(dataMap);
-        flutterResult.success(jsonObj.toString());
+        try {
+            flutterResult.success(jsonObj.toString());
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
     }
 
     @Override
